@@ -4,6 +4,7 @@
  */
 package registrationloginapp;
 
+//importing the scannerto get user input
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -17,7 +18,9 @@ public class RegistrationLoginApp {
      * @param args the command line arguments
      */
     public static void main(String[]args){
+        // create a scanner to allow a user input
         Scanner scanner = new Scanner(System.in);
+        Messages lebo = new Messages();
         
         System.out.println("Enter username");
         String user = scanner.nextLine();
@@ -60,6 +63,12 @@ if (c.checkUsername(user)
         boolean loginSuccessful = c.loginUser(enteredUsername , enteredPassword);
         
         System.out.println(c.returnLoginStatus(loginSuccessful));
-    }   
+        
+       
+       
+       if (loginSuccessful){
+           lebo.chat(c);
+       }
+}
     }
 }
